@@ -1,6 +1,7 @@
 <?php
 
 /*
+Funciones:
 Se compone de function nombredelafuncion(argumentos)
 $apellido="" => permite enviar el argumento "apellido" vacío
 como en la primera llamada, de lo contrario provoca un error.
