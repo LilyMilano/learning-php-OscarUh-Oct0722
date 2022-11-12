@@ -1,6 +1,18 @@
 <?php
 include("cabecera.php");
 ?>
+<?php
+include("conexion.php");
+?>
+<?php
+$objConexion=new conexion(); // nueva instancia
+$sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, 'Proyecto 1', 'imagen.jpg', 'Es un proyecto de 1995.');";
+$objConexion->ejecutar($sql);
+?>
+
+
+
+
 <br>
 <!-- _________________bs5-grid-default____________________ -->
 
