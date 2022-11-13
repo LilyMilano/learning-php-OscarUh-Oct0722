@@ -23,6 +23,8 @@ if($_POST){
     $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, '$nombre', '$imagen', '$descripcion');";
     
     $objConexion->ejecutar($sql);
+    
+    header("location:portafolio.php"); /*redirecciona a la misma página, luego de ejecutar el comando sql. Ya no se ejecutará al refrescar o con F5*/
 }
 
 if($_GET){
@@ -36,6 +38,7 @@ if($_GET){
     
     $sql="DELETE FROM `proyectos` WHERE `proyectos`.`id` =".$id;
     $objConexion->ejecutar($sql); 
+    header("location:portafolio.php");
 }
 
 $objConexion=new conexion();
@@ -60,13 +63,13 @@ $proyectos=$objConexion->consultar("SELECT * FROM `proyectos`");
                     <form action="portafolio.php" method="post" enctype="multipart/form-data">
                         <!-- enctype="multipart/form-data: para recibir archivos de tipo file -->
 
-                        Nombre del Proyecto: <input class="form-control" type="text" name="nombre" id="">
+                        Nombre del Proyecto: <input required class="form-control" type="text" name="nombre" id="">
                         <br>
-                        Imagen del Proyecto: <input class="form-control" type="file" name="archivo" id="">
+                        Imagen del Proyecto: <input required class="form-control" type="file" name="archivo" id="">
                         <br>
                         Descripción:
-                        <textarea class="form-control" name="descripcion" id="" rows="3">
-                            </textarea><br>
+                        <textarea required class="form-control" name="descripcion" id="" rows="3"></textarea>
+                        <br>
                         <input class="btn btn-success" type="submit" value="Enviar Proyecto">
 
                     </form>
