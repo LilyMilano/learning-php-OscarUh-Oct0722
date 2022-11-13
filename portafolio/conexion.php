@@ -20,11 +20,15 @@ class conexion {
         }   
     }
     
-    public function ejecutar($sql) {
-
+    public function ejecutar($sql) {  // insert/delete/update
         $this->conexion->exec($sql);
-        return $this->conexion->lastInsertId();
-        
+        return $this->conexion->lastInsertId();  
+    }
+
+    public function consultar($sql){
+        $sentencia=$this->conexion->prepare($sql);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
     }
 
 
